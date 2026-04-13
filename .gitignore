@@ -1,0 +1,62 @@
+# ── Environment & secrets ────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# ── Distribution / packaging ─────────────────────────────────────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+MANIFEST
+.eggs/
+wheels/
+
+# ── Virtual environments ─────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+# ── Logs ─────────────────────────────────────────────────────────────────
+ logs/
+# ── uv ───────────────────────────────────────────────────────────────────────
+# uv.lock is intentionally committed — do not ignore it
+
+# ── Testing & coverage ───────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# ── Type checkers & linters ───────────────────────────────────────────────────
+.mypy_cache/
+.pyrefly_cache/
+.ruff_cache/
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Local data cache (pipeline outputs) ──────────────────────────────────────
+data/
+
+# ── AWS ───────────────────────────────────────────────────────────────────────
+.aws/
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDEs ─────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo

@@ -1,0 +1,39 @@
+{
+  "name": "gluemancy",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ],
+  "postCreateCommand": "uv sync --all-groups && mkdir -p /workspace/logs",
+  "postStartCommand": "mkdir -p /workspace/logs && nohup uv run python -m gluemancy.watcher >> /workspace/logs/watcher.log 2>&1 &",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.pylint",
+        "charliermarsh.ruff",
+        "ms-python.vscode-pylance",
+        "amazonwebservices.aws-toolkit-vscode"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+        "editor.formatOnSave": true,
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+          }
+        },
+        "pylint.args": [
+          "--rcfile=pyproject.toml"
+        ],
+        "ruff.configuration": "pyproject.toml"
+      }
+    }
+  }
+}
